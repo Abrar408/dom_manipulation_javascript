@@ -8,10 +8,10 @@
 }
 body{
     background-color: rgba(206, 255, 255, 0.7);
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100vh;
+    align-items: center;    
     justify-content: center;
 }
 .container{
@@ -50,7 +50,7 @@ button{
 }
 input{
     border: 1px solid rgb(146, 146, 146);
-    border-radius: 2px;
+    border-radius: 5px;
     height: 40px;
     width: 24%;
     margin:20px 0px;
@@ -89,13 +89,11 @@ input{
     overflow-y: auto;
     max-height: 75%;
 }
-table{
-    width: 100%;   
-    table-layout: fixed; 
-}
 table,tr,td,th{
     border: 1px solid black;
     border-collapse: collapse;
+    width: 100%;   
+    table-layout: fixed;
 }
 th{
     font-size: 25px;
@@ -108,15 +106,14 @@ tr{
     height: 30px;
 }
 tr:nth-child(even) {background-color: #53da2a4f;}
-tr:hover{
+tr:hover,
+tr:focus{
     background-color: rgba(39, 109, 39, 0.719);
     color: white;
     cursor: pointer;
-    font-weight: bold;
-    
+    font-weight: bold;    
 }
 td{
     padding: 10px;
-    /* font-size: 25px; */
-    
+    overflow-x: hidden;    
 }

@@ -1,111 +1,98 @@
-    var name;
-    var contact;
-    var email;
-    var status;
-
-    var data_name
-    var data_contact
-    var data_email
-    var data_status
-
-    var name_text = document.getElementById("name-text")
-    var contact_text = document.getElementById("contact-text")
-    var email_text = document.getElementById("email-text")
-    var status_text = document.getElementById("status-text")
-
+    var _name,_contact,_email,_status;//variables for input textbox   
+    var data_name,data_contact,data_email,data_status;//variables for row data
     var data_row
-
     var rowIndex
-
     var table = document.getElementById("table");
 
     document.getElementById("add-btn").addEventListener("click", add_btn);
     document.getElementById("update-btn").addEventListener("click", update_btn);
-    document.getElementById("delete-btn").addEventListener("click", delete_btn);     
-        
+    document.getElementById("delete-btn").addEventListener("click", delete_btn);            
 
-        function getVal(){
+    function updateVal(){
 
-            name = document.getElementById("name-text").value;
-            contact = document.getElementById("contact-text").value;
-            email = document.getElementById("email-text").value;
-            status = document.getElementById("status-text").value;
-            return name,contact,email,status;
+        _name = document.getElementById("name-text");
+        _contact = document.getElementById("contact-text");
+        _email = document.getElementById("email-text");
+        _status = document.getElementById("status-text");    
         
-    }       
+    } 
+    
+    function clearTextbox(){
+
+        _name.value = "";
+        _contact.value = "";
+        _email.value = "";
+        _status.value = "";     
+    } 
 
     function add_btn(){
-
-        getVal();
-        if(name != ""){
-        data_row = document.createElement("tr")           
-        data_row.addEventListener("click", getIndex);
-        table.appendChild(data_row)
+        updateVal();
+        if(_name.value != ""){
+            data_row = document.createElement("tr")     
+            data_row.tabIndex="0"      
+            data_row.addEventListener("click", getIndex);
+            table.appendChild(data_row)
 
             data_name = document.createElement("td")
             data_contact = document.createElement("td")
             data_email = document.createElement("td")
             data_status = document.createElement("td")
 
-        data_name.innerHTML = name
-        data_contact.innerHTML = contact
-        data_email.innerHTML = email
-        data_status.innerHTML = status
+            data_name.innerHTML = _name.value;
+            data_contact.innerHTML = _contact.value;
+            data_email.innerHTML = _email.value;
+            data_status.innerHTML = _status.value;
 
-        data_row.appendChild(data_name)
-        data_row.appendChild(data_contact)
-        data_row.appendChild(data_email)
-        data_row.appendChild(data_status)
+            data_row.appendChild(data_name)
+            data_row.appendChild(data_contact)
+            data_row.appendChild(data_email)
+            data_row.appendChild(data_status)
 
-        name_text.value = ""
-        contact_text.value = ""
-        email_text.value = ""
-        status_text.value = ""
-    }
-        
+            clearTextbox()
+        } 
+        else{
+            console.log("name field cannot be empty")
+        }       
     }
 
     function getIndex(){
         rowIndex = this.rowIndex
-
-        // name_text = document.getElementById("name-text")
-        // contact_text = document.getElementById("contact-text")
-        // email_text = document.getElementById("email-text")
-        // status_text = document.getElementById("status-text")
-
         var selected_row = table.rows[rowIndex]
         
-        name_text.value = selected_row.cells[0].innerHTML
-        contact_text.value = selected_row.cells[1].innerHTML
-        email_text.value = selected_row.cells[2].innerHTML
-        status_text.value = selected_row.cells[3].innerHTML
-        
+        _name.value = selected_row.cells[0].innerHTML
+        _contact.value = selected_row.cells[1].innerHTML
+        _email.value = selected_row.cells[2].innerHTML
+        _status.value = selected_row.cells[3].innerHTML        
     }
+
     function update_btn(){
-
-        if(rowIndex>0){
-            getVal()
+        if(rowIndex>0 && _name.value != ""){
+            updateVal()
             var selected_row = table.rows[rowIndex]
-            selected_row.cells[0].innerHTML = name
-            selected_row.cells[1].innerHTML = contact
-            selected_row.cells[2].innerHTML = email
-            selected_row.cells[3].innerHTML = status
+            selected_row.cells[0].innerHTML = _name
+            selected_row.cells[1].innerHTML = _contact
+            selected_row.cells[2].innerHTML = _email
+            selected_row.cells[3].innerHTML = _status
+            rowIndex =0
 
-            name_text.value = ""
-            contact_text.value = ""
-            email_text.value = ""
-            status_text.value = ""
+            clearTextbox()
+        }     
+        else if(rowIndex>0 && _name.value === ""){
+            console.log("name field cannot be empty")
         }
-
-        
+        else{
+            console.log("no row selected")
+        }   
     }
 
     function delete_btn(){
         if(rowIndex>0){
         table.removeChild(table.children[rowIndex])
-        rowIndex =0;}
+        rowIndex =0;
+        clearTextbox()
+        }
         else{
-            console.log("No row selected")
+            console.log("no row selected")
         }
         
     }
