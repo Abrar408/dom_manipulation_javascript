@@ -1,0 +1,122 @@
+*{
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif, Tahoma, Geneva, Verdana, sans-serif
+}
+body{
+    background-color: rgba(206, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+.container{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 5px gray;
+    height: 90%;
+    width: 65%;
+    padding: 20px;
+}
+.buttons h1{
+    align-self: center;
+    position: absolute;
+    left: 20px;
+    font-size: 50px;
+    color: rgb(32, 253, 32);
+    -webkit-text-stroke: 2px rgb(4, 49, 4);
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    height: 50px;
+    width:20%;
+    margin-left: 20px;
+    font-size: larger;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.input{
+    display: flex;
+    justify-content: space-between;
+}
+input{
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 2px;
+    height: 40px;
+    width: 24%;
+    margin:20px 0px;
+    font-size: large;
+}
+::placeholder{
+    color: lightgray;
+    font-size: medium;
+    padding-left: 5px;
+}
+#add-btn{
+    background-color: rgb(0, 255, 0);
+}
+#add-btn:hover{
+    box-shadow: 0px 0px 10px 2px rgb(0, 255, 0);
+    font-size: 21px;
+    cursor: pointer;
+}
+#update-btn{
+    background-color: rgb(0, 0, 255);
+}
+#update-btn:hover{
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 255);
+    font-size: 21px;
+    cursor: pointer;
+}
+#delete-btn{
+    background-color: rgb(255, 0, 0);
+}
+#delete-btn:hover{
+    box-shadow: 0px 0px 10px 2px rgb(255, 0, 0);
+    font-size: 21px;
+    cursor: pointer;
+}
+.table{
+    overflow-y: auto;
+    max-height: 75%;
+}
+table{
+    width: 100%;   
+    table-layout: fixed; 
+}
+table,tr,td,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    font-size: 25px;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(39, 109, 39);
+    color: white;
+}
+tr{
+    height: 30px;
+}
+tr:nth-child(even) {background-color: #53da2a4f;}
+tr:hover{
+    background-color: rgba(39, 109, 39, 0.719);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    
+}
+td{
+    padding: 10px;
+    /* font-size: 25px; */
+    
+}
